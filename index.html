@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ครบรอบ 1 ปี โอม-คิม ❤️</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">    
+        <div class="logo">
+            <h1>Happy First Anniversary</h1> 
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="gallery.html">แกลเลอรีความทรงจำ</a></li>
+                <li><a href="messages.html">ข้อความจากใจ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="hero-section">
+        <div class="hero-content">
+            <img src="pic/รูปแรก.jpeg" alt="รูปคู่ที่ดีที่สุด" class="hero-image">
+            <h2>ยินดีต้อนรับสู่โลกแห่งความทรงจำของเราสองคน...</h2>
+            <p>แด่เธอ...น้องคิมคนสวยของพี่</p>
+            <p class="anniversary-counter">เราคบกันมาแล้ว: <span id="daysCounter">...</span> วัน</p> 
+            <a href="gallery.html" class="cta-button">สำรวจเรื่องราวของเรา</a>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>สร้างสรรค์ด้วยรัก โดย [พี่โอม] สำหรับ [น้องคิม]</p>
+        <p>ตั้งแต่: [29/06/2024] - [29/06/2025]</p>
+    </footer>
+
+    <script>
+        // ตัวอย่าง JavaScript สำหรับนับวัน (คุณต้องใส่วันที่เริ่มคบของคุณเอง)
+        const startDate = new Date('2024-06-29'); // ใส่วันที่เริ่มคบในรูปแบบ YYYY-MM-DD
+        const today = new Date();
+        const diffTime = Math.abs(today - startDate);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        document.getElementById('daysCounter').innerText = diffDays;
+    </script>
+</body>
+</html>

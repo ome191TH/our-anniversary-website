@@ -1,0 +1,394 @@
+/* --- 1. Basic Resets & Mobile-First Base Styles --- */
+/* ส่วนนี้จะเป็นการตั้งค่าพื้นฐานสำหรับทุกอุปกรณ์ โดยเน้นไปที่มือถือเป็นหลัก */
+
+* {
+    box-sizing: border-box; /* ทำให้ padding และ border ไม่เพิ่มขนาดขององค์ประกอบ */
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px; /* กำหนด font-size พื้นฐาน */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fce4ec; /* สีชมพูอ่อนๆ น่ารักๆ */
+    text-align: center; /* จัดข้อความให้อยู่ตรงกลางเป็นค่าเริ่มต้น */
+}
+
+a {
+    color: #e91e63; /* สีชมพูเข้ม */
+    text-decoration: none; /* ไม่มีขีดเส้นใต้ */
+    transition: color 0.3s ease; /* ใส่ Animation ตอน Hover */
+}
+
+a:hover {
+    color: #d81b60;
+}
+
+/* --- Header & Navigation --- */
+.main-header {
+    background-color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.main-header .logo h1 {
+    font-size: 1.8rem;
+    color: #e91e63;
+    margin-bottom: 0.5rem;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex; /* จัดเรียงเมนูแนวนอน */
+    justify-content: center; /* จัดให้อยู่กึ่งกลาง */
+    padding: 0;
+}
+
+.main-nav ul li {
+    margin: 0 0.5rem; /* ระยะห่างระหว่างเมนู */
+}
+
+.main-nav ul li a {
+    display: block;
+    padding: 0.5rem 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+}
+
+.main-nav ul li a:hover {
+    background-color: #ffebee; /* สีชมพูอ่อนมากตอน Hover */
+    color: #e91e63;
+}
+
+/* --- Hero Section (หน้าแรก) --- */
+.hero-section {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+}
+
+.hero-content {
+    max-width: 100%; /* สำหรับมือถือ content จะเต็มความกว้าง */
+    margin: 0 auto;
+}
+
+.hero-image {
+    max-width: 80%; /* รูปจะถูกบีบให้เล็กลงสำหรับมือถือ */
+    height: auto;
+    border-radius: 50%; /* ทำให้รูปเป็นวงกลม */
+    border: 5px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    margin-bottom: 1.5rem;
+}
+
+.hero-section h2 {
+    font-size: 1.5rem;
+    color: #e91e63;
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.8rem;
+}
+
+.anniversary-counter {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #d81b60;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block; /* ทำให้ปุ่มเป็นบล็อกแต่จัดเรียงตามเนื้อหาได้ */
+    background-color: #e91e63;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #d81b60;
+    transform: translateY(-3px); /* ทำให้ปุ่มเด้งขึ้นเล็กน้อย */
+}
+
+/* --- Gallery & Messages Pages General Styles --- */
+.gallery-page, .messages-page {
+    padding: 2rem 1rem;
+    max-width: 100%; /* สำหรับมือถือ */
+    margin: 0 auto;
+}
+
+.gallery-page h2, .messages-page h2 {
+    font-size: 1.8rem;
+    color: #e91e63;
+    margin-bottom: 2rem;
+}
+
+/* --- Gallery Page Specific Styles --- */
+.gallery-category {
+    margin-bottom: 3rem;
+}
+
+.gallery-category h3 {
+    font-size: 1.4rem;
+    color: #d81b60;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.gallery-category h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: #ffcdd2; /* สีชมพูอ่อนๆ */
+    border-radius: 5px;
+}
+
+.image-grid, .video-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 คอลัมน์สำหรับมือถือ */
+    gap: 1.5rem; /* ระยะห่างระหว่างรูป */
+}
+
+.gallery-item, .video-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden; /* ซ่อนขอบที่เกินมา */
+    padding-bottom: 1rem; /* เพิ่ม padding ด้านล่างให้ caption */
+}
+
+.gallery-item img, .video-item video {
+    width: 100%;
+    height: auto;
+    display: block; /* ลบช่องว่างด้านล่างรูป */
+    object-fit: cover; /* ทำให้รูปเต็มพื้นที่โดยไม่ผิดสัดส่วน */
+    max-height: 250px; /* กำหนดความสูงสูงสุดสำหรับรูปภาพ/วิดีโอ */
+}
+
+.gallery-item .caption, .video-item .caption {
+    font-size: 0.95rem;
+    color: #555;
+    padding: 0.8rem 1rem 0;
+    text-align: left; /* จัดข้อความ caption ชิดซ้าย */
+}
+
+/* --- Messages Page Specific Styles --- */
+.love-letter, .our-promises, .gratitude {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    text-align: left; /* จัดข้อความชิดซ้าย */
+}
+
+.love-letter h3, .our-promises h3, .gratitude h3 {
+    font-size: 1.4rem;
+    color: #d81b60;
+    margin-bottom: 1rem;
+}
+
+.love-letter p, .gratitude p {
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+.love-letter .signature {
+    font-style: italic;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 1.5rem;
+}
+
+.our-promises ul, .gratitude ul {
+    list-style: none; /* ไม่มีจุดนำหน้าลิสต์ */
+    padding-left: 0;
+}
+
+.our-promises ul li::before, .gratitude ul li::before {
+    content: '💖 '; /* เพิ่มอิโมจิหัวใจนำหน้า */
+    color: #e91e63;
+    font-size: 0.9rem;
+}
+
+.our-promises ul li, .gratitude ul li {
+    margin-bottom: 0.5rem;
+    color: #444;
+}
+
+/* --- Footer --- */
+.main-footer {
+    background-color: #e91e63;
+    color: #fff;
+    padding: 1.5rem 1rem;
+    font-size: 0.9rem;
+    margin-top: 3rem;
+}
+
+.main-footer p {
+    margin-bottom: 0.5rem;
+}
+
+
+/* --- 2. Media Queries for Larger Screens --- */
+/* ส่วนนี้จะเป็นการปรับแต่งสำหรับหน้าจอที่ใหญ่ขึ้น (เช่น แท็บเล็ต, เดสก์ท็อป) */
+
+/* สำหรับหน้าจอแท็บเล็ต (min-width: 768px) */
+@media (min-width: 768px) {
+    .main-header .logo h1 {
+        font-size: 2.2rem;
+    }
+
+    .main-nav ul li {
+        margin: 0 1rem;
+    }
+
+    .main-nav ul li a {
+        font-size: 1.1rem;
+    }
+
+    .hero-section {
+        padding: 3rem 2rem;
+    }
+
+    .hero-image {
+        max-width: 60%; /* ขยายรูปใหญ่ขึ้น */
+    }
+
+    .hero-section h2 {
+        font-size: 2rem;
+    }
+
+    .hero-section p {
+        font-size: 1.1rem;
+    }
+
+    .anniversary-counter {
+        font-size: 1.4rem;
+    }
+
+    .cta-button {
+        padding: 1.2rem 2.5rem;
+        font-size: 1.2rem;
+    }
+
+    .gallery-page, .messages-page {
+        padding: 3rem 2rem;
+        max-width: 800px; /* จำกัดความกว้างสำหรับเนื้อหาหลัก */
+    }
+
+    .gallery-page h2, .messages-page h2 {
+        font-size: 2.2rem;
+    }
+
+    .gallery-category h3 {
+        font-size: 1.6rem;
+    }
+
+    .image-grid, .video-grid {
+        grid-template-columns: 1fr 1fr; /* 2 คอลัมน์สำหรับแท็บเล็ต */
+    }
+}
+
+/* สำหรับหน้าจอเดสก์ท็อป (min-width: 1024px) */
+@media (min-width: 1024px) {
+    .main-header {
+        display: flex; /* ทำให้โลโก้และเมนูอยู่คนละฝั่ง */
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 3rem; /* เพิ่ม padding ด้านข้าง */
+    }
+
+    .main-header .logo {
+        margin-bottom: 0;
+    }
+
+    .main-header .logo h1 {
+        font-size: 2.5rem;
+    }
+
+    .main-nav ul li {
+        margin: 0 1.2rem;
+    }
+
+    .main-nav ul li a {
+        padding: 0.7rem 1.2rem;
+        font-size: 1.15rem;
+    }
+
+    .hero-section {
+        padding: 4rem 2rem;
+    }
+
+    .hero-content {
+        max-width: 700px; /* จำกัดความกว้างของเนื้อหา Hero */
+    }
+
+    .hero-image {
+        max-width: 40%; /* รูปใหญ่ขึ้นอีก */
+    }
+
+    .hero-section h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1.2rem;
+    }
+
+    .anniversary-counter {
+        font-size: 1.6rem;
+    }
+
+    .cta-button {
+        padding: 1.3rem 2.8rem;
+        font-size: 1.3rem;
+    }
+
+    .gallery-page, .messages-page {
+        padding: 4rem 2rem;
+        max-width: 960px; /* จำกัดความกว้างสำหรับเดสก์ท็อป */
+    }
+
+    .gallery-page h2, .messages-page h2 {
+        font-size: 2.5rem;
+    }
+
+    .gallery-category h3 {
+        font-size: 1.8rem;
+    }
+
+    .image-grid, .video-grid {
+        grid-template-columns: 1fr 1fr 1fr; /* 3 คอลัมน์สำหรับเดสก์ท็อป */
+    }
+
+    .gallery-item img, .video-item video {
+        max-height: 300px; /* เพิ่มความสูงสูงสุดของรูปภาพ/วิดีโอ */
+    }
+
+    .love-letter, .our-promises, .gratitude {
+        padding: 2rem;
+    }
+
+    .love-letter h3, .our-promises h3, .gratitude h3 {
+        font-size: 1.6rem;
+    }
+}
